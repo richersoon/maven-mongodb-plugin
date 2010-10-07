@@ -27,9 +27,9 @@
 	 | scm configuration
 	 +-->
 	<scm>
-		<connection>scm:svn:http://maven-mongodb-plugin.googlecode.com/svn/trunk/maven-mongodb-plugin/</connection>
-		<developerConnection>scm:svn:https://maven-mongodb-plugin.googlecode.com/svn/trunk/maven-mongodb-plugin/</developerConnection>
-		<url>http://maven-mongodb-plugin.googlecode.com/svn/trunk/maven-mongodb-plugin/</url>
+		<connection>scm:svn:http://maven-mongodb-plugin.googlecode.com/svn/trunk/</connection>
+		<developerConnection>scm:svn:https://maven-mongodb-plugin.googlecode.com/svn/trunk/</developerConnection>
+		<url>http://maven-mongodb-plugin.googlecode.com/svn/trunk/</url>
 	</scm>
 
 	<!-- 
