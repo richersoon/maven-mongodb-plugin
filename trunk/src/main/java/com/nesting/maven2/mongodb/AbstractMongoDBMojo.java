@@ -20,6 +20,7 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.settings.Server;
 import org.apache.maven.settings.Settings;
 
+import com.mongodb.CommandResult;
 import com.mongodb.DB;
 import com.mongodb.Mongo;
 import com.mongodb.ServerAddress;
@@ -187,21 +188,29 @@ public abstract class AbstractMongoDBMojo
         BufferedReader in = new BufferedReader(reader);
 
         // loop through the statements
-        int execCount = 0;
         while ((line = in.readLine()) != null) {
             
             // append the line
             line.trim();
             data.append("\n").append(line);
         }
-        
-        // execute last statement
-        db.eval(data.toString(), new Object[0]);
-        
         reader.close();
         in.close();
         
-        getLog().info(" "+execCount+" statements executed from "+file.getName());
+        // execute last statement
+        try {
+        	CommandResult result = db.doEval(data.toString(), new Object[0]);
+        	if (!result.ok()) {
+            	getLog().warn(
+            		"Error executing "+file.getName()+": "
+            		+result.getErrorMessage(), result.getException());
+        	} else {
+        		getLog().info(" "+file.getName()+" executed successfully");
+        	}
+        } catch(Exception e) {
+        	getLog().error(" error executing "+file.getName(), e);
+        }
+        
     }
     /**
      * Opens a connection using the given settings.
@@ -266,13 +275,3 @@ public abstract class AbstractMongoDBMojo
     	mongo.dropDatabase(dbConnectionSettings.getDatabase());
     }
 }
-
-
-
-
-
-
-
-
-
-
