@@ -1,12 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
-        http://maven.apache.org/POM/4.0.0 
-        http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="         http://maven.apache.org/POM/4.0.0          http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<!-- | Basic project information + -->
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.googlecode</groupId>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<artifactId>maven-mongodb-plugin</artifactId>
 	<name>maven mongodb plugin</name>
 	<packaging>maven-plugin</packaging>
@@ -27,9 +24,9 @@
 	 | scm configuration
 	 +-->
 	<scm>
-		<connection>scm:svn:http://maven-mongodb-plugin.googlecode.com/svn/trunk/</connection>
-		<developerConnection>scm:svn:https://maven-mongodb-plugin.googlecode.com/svn/trunk/</developerConnection>
-		<url>http://maven-mongodb-plugin.googlecode.com/svn/trunk/</url>
+		<connection>scm:svn:http://maven-mongodb-plugin.googlecode.com/svn/tags/maven-mongodb-plugin-0.1</connection>
+		<developerConnection>scm:svn:https://maven-mongodb-plugin.googlecode.com/svn/tags/maven-mongodb-plugin-0.1</developerConnection>
+		<url>http://maven-mongodb-plugin.googlecode.com/svn/tags/maven-mongodb-plugin-0.1</url>
 	</scm>
 
 
