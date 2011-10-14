@@ -50,6 +50,16 @@
 	 | build configuration 
 	 + -->
 	<build>
+
+		<!-- build extensions -->
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav</artifactId>
+				<version>1.0-beta-2</version>
+			</extension>
+		</extensions>
+
 		<plugins>
 			<!-- maven2 plugins are written under java 1.4 -->
 			<plugin>
