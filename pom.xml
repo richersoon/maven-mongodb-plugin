@@ -32,6 +32,7 @@
 		<url>http://maven-mongodb-plugin.googlecode.com/svn/trunk/</url>
 	</scm>
 
+
 	<!-- 
 	 | distribution (deployment) configuration 
 	 + -->
