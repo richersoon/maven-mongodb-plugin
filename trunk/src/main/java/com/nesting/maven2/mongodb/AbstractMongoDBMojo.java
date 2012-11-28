@@ -199,7 +199,7 @@ public abstract class AbstractMongoDBMojo
         
         // execute last statement
         try {
-        	CommandResult result = db.doEval(data.toString(), new Object[0]);
+        	CommandResult result = db.doEval("(function() {"+data.toString()+"})();", new Object[0]);
         	if (!result.ok()) {
             	getLog().warn(
             		"Error executing "+file.getName()+": "
