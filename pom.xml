@@ -3,7 +3,7 @@
 	<!-- | Basic project information + -->
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.googlecode</groupId>
-	<version>0.4</version>
+	<version>0.5-SNAPSHOT</version>
 	<artifactId>maven-mongodb-plugin</artifactId>
 	<name>maven mongodb plugin</name>
 	<packaging>maven-plugin</packaging>
@@ -24,9 +24,9 @@
 	 | scm configuration
 	 +-->
 	<scm>
-		<connection>scm:svn:http://maven-mongodb-plugin.googlecode.com/svn/tags/maven-mongodb-plugin-0.4</connection>
-		<developerConnection>scm:svn:https://maven-mongodb-plugin.googlecode.com/svn/tags/maven-mongodb-plugin-0.4</developerConnection>
-		<url>http://maven-mongodb-plugin.googlecode.com/svn/tags/maven-mongodb-plugin-0.4</url>
+		<connection>scm:svn:http://maven-mongodb-plugin.googlecode.com/svn/trunk/</connection>
+		<developerConnection>scm:svn:https://maven-mongodb-plugin.googlecode.com/svn/trunk/</developerConnection>
+		<url>http://maven-mongodb-plugin.googlecode.com/svn/trunk/</url>
 	</scm>
 
 
