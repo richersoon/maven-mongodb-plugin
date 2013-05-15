@@ -47,6 +47,12 @@ public abstract class AbstractMongoDBMojo
      * @readonly
      */
     private Settings settings;
+ 
+    /**
+     * The encoding of update scripts.
+     * @parameter
+     */
+    private String scriptEncoding;
     
     /**
      * Child mojos need to implement this.
@@ -74,8 +80,7 @@ public abstract class AbstractMongoDBMojo
      * @throws MojoExecutionException on error
      * @throws MojoFailureException on error
      */
-    private void checkDbSettings(
-        ConnectionSettings dbSettings, String name) 
+    private void checkDbSettings(ConnectionSettings dbSettings, String name) 
         throws MojoExecutionException, 
         MojoFailureException {
         
@@ -115,7 +120,7 @@ public abstract class AbstractMongoDBMojo
         
         // talk a bit :)
         getLog().info("Executing scripts in: "+directory.getName());
-        
+
         // make sure we can read it, and that it's 
         // a file and not a directory
         if (!directory.isDirectory()) {
@@ -181,8 +186,14 @@ public abstract class AbstractMongoDBMojo
         
         // our file reader
         Reader reader;
-        reader = new InputStreamReader(ips);
-        
+        if (StringUtils.isBlank(scriptEncoding)) {
+        	getLog().warn("Using system default for script encoding");
+            reader = new InputStreamReader(ips);
+        } else {
+        	getLog().info("Using "+scriptEncoding+" for script encoding");
+        	reader = new InputStreamReader(ips, scriptEncoding);
+        }
+
         StringBuffer data = new StringBuffer();
         String line;
         BufferedReader in = new BufferedReader(reader);
@@ -274,4 +285,5 @@ public abstract class AbstractMongoDBMojo
     protected void dropDatabase(Mongo mongo) {
     	mongo.dropDatabase(dbConnectionSettings.getDatabase());
     }
+
 }
